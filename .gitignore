@@ -1,0 +1,4 @@
+feed.json
+*.png
+shot.py
+__pycache__/
