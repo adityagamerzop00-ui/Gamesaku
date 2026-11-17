@@ -38,7 +38,7 @@ def card(g, big=False):
 cats = []
 for g in games:
     if g["cat"] not in cats: cats.append(g["cat"])
-ICON = {"Puzzle": "🧩", "Racing": "🏎️", "Action": "💥", "Arcade": "🕹️", "Sports": "⚽", "Shooting": "🎯", "Multiplayer": "👥",
+ICON = {"Obby": "🧱", "Brainrot": "🧠", "Puzzle": "🧩", "Racing": "🏎️", "Action": "💥", "Arcade": "🕹️", "Sports": "⚽", "Shooting": "🎯", "Multiplayer": "👥",
         "Hypercasual": "⚡", "3D": "🧊", "Stickman": "🥷", "Adventure": "🗺️"}
 
 # ---- home
@@ -63,7 +63,7 @@ for g in games:
              f'/game/{g["slug"]}/', f'<script type="application/ld+json">{ld}</script>')
     p += '<main class="wrap">\n'
     p += f'<nav class="crumb"><a href="/">Home</a> › <span>{e(g["cat"])}</span></nav>'
-    p += f'<section class="play" style="--ar:{ratio}"><div class="stage" id="stage" data-src="{e(g["url"])}">'
+    p += f'<section class="play{" play--tall" if g["h"] > g["w"] else ""}" style="--ar:{ratio}"><div class="stage" id="stage" data-src="{e(g["url"])}">'
     p += f'<img class="stage__bg" src="{e(g["thumb"])}" alt=""><div class="stage__go"><img src="{e(g["thumb"])}" alt="{e(g["title"])}" width="160" height="120"><h1>{e(g["title"])}</h1><button class="btn-play" id="playBtn">▶ Play now</button></div></div>'
     p += '<div class="bar"><span class="bar__t">' + e(g["title"]) + '</span><button class="ic" id="fsBtn" aria-label="Full screen">⛶</button></div></section>\n'
     p += f'<section class="info"><h2>About {e(g["title"])}</h2><p>{e(g["desc"])}</p>'
